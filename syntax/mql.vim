@@ -2,6 +2,7 @@
 " Maintainer:  Jônatas Davi Paganini <jonatasdp@gmail.com>
 " URL:         http://github.com/jonatasdp/vim-mql
 " License:     WTFPL
+" Inspired: Coffee Language
 
 if exists("b:current_syntax")
   finish
@@ -33,10 +34,10 @@ syntax keyword mqlKeyword new in of by where and or not is isnt
 \                            class extends super
 highlight default link mqlKeyword Keyword
 
-syntax keyword mqlBoolean true on yes false off no
+syntax keyword mqlBoolean true TRUE false FALSE EMPTY_VALUE EMPTY 
 highlight default link mqlBoolean Boolean
 
-syntax keyword mqlGlobal null undefined
+syntax keyword mqlGlobal null NULL 
 highlight default link mqlGlobal Type
 
 syntax keyword mqlVar this prototype arguments
@@ -69,12 +70,13 @@ highlight default link mqlAssignment Identifier
 syntax match mqlFunction /->/
 syntax match mqlFunction /=>/
 syntax match mqlFunction /<-/
+syntax match mqlFunction /<-/
 highlight default link mqlFunction Function
 
 syntax keyword mqlTodo TODO FIXME XXX contained
 highlight default link mqlTodo Todo
 
-syntax match mqlComment /#.*/ contains=@Spell,mqlTodo
+syntax match mqlComment /\/\/.*/ contains=@Spell,mqlTodo
 syntax match mqlComment /####\@!\_.\{-}###/ contains=@Spell,mqlTodo
 highlight default link mqlComment Comment
 
@@ -127,6 +129,6 @@ syntax match mqlSemicolonError /;$/ display
 highlight default link mqlSemicolonError Error
 
 " Displays an error for reserved words
-syntax keyword mqlReservedError case default do function var void with const
+syntax keyword mqlReservedError bool case default do function var void with const
 let enum export import native
 highlight default link mqlReservedError Error
