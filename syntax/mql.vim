@@ -77,7 +77,7 @@ syntax keyword mqlTodo TODO FIXME XXX contained
 highlight default link mqlTodo Todo
 
 syntax match mqlComment /\/\/.*/ contains=@Spell,mqlTodo
-syntax match mqlComment /####\@!\_.\{-}###/ contains=@Spell,mqlTodo
+syntax match mqlComment /#.*/ contains=@Spell,mqlTodo
 highlight default link mqlComment Comment
 
 syntax region mqlEmbed start=/`/ end=/`/
@@ -129,6 +129,5 @@ syntax match mqlSemicolonError /;$/ display
 highlight default link mqlSemicolonError Error
 
 " Displays an error for reserved words
-syntax keyword mqlReservedError bool case default do function var void with const
-let enum export import native
-highlight default link mqlReservedError Error
+syntax keyword mqlReservedWords bool case default do function var void with const enum export import native extern input
+highlight default link mqlReservedWords Identifier
